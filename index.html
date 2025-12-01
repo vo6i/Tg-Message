@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Отправка сообщения в Telegram</title>
+</head>
+<body>
+
+    <h1>Отправка сообщения в Telegram</h1>
+    <p>Нажмите на кнопку, чтобы написать сообщение пользователю "Kshik".</p>
+
+    <!-- Кнопка, при нажатии на которую будет вызвана функция JavaScript -->
+    <button onclick="sendTelegramMessage()">Написать в Telegram</button>
+
+    <script>
+        function sendTelegramMessage() {
+            const username = 'dclxviclangames'; 
+            const message = 'Привет, это сообщение с веб-сайта.';
+            
+            // Кодируем текст, чтобы он корректно отображался в URL
+            const encodedText = encodeURIComponent(message);
+            
+            // Формируем URL
+            const url = `tg://resolve?domain=${username}&text=${encodedText}`;
+            
+            // Открываем URL
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
