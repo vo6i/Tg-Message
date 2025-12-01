@@ -41,6 +41,13 @@
         .btn:hover {
             background-color: #ff4d94;
         }
+        /* Стили для кнопки WhatsApp */
+        .btn.whatsapp {
+            background-color: #25D366;
+        }
+        .btn.whatsapp:hover {
+            background-color: #128C7E;
+        }
 
         /* Стили шапки и SVG */
         header {
@@ -96,6 +103,11 @@
             text-align: center;
             padding: 20px 0;
         }
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Отступ между кнопками */
+        }
     </style>
 </head>
 <body>
@@ -117,8 +129,10 @@
             <div class="container">
                 <h1>Добро пожаловать в Wow You Shine!</h1>
                 <p>Мы предлагаем лучшие услуги по уходу за собой. Почувствуйте себя звездой!</p>
-                <!-- Используем кнопку с JS обработчиком -->
-                <button class="btn" onclick="sendTelegramMessage()">Записаться в Telegram</button>
+                <div class="button-group">
+                    <button class="btn" onclick="sendTelegramMessage()">Записаться в Telegram</button>
+                    <button class="btn whatsapp" onclick="sendWhatsAppMessage()">Написать в WhatsApp</button>
+                </div>
             </div>
         </section>
 
@@ -148,12 +162,14 @@
             <div class="container">
                 <h2>Контакты и запись</h2>
                 <p><strong>Адрес:</strong> г. Москва, ул. Примерная, 10</p>
-                <!-- Обновил контактную информацию для Telegram -->
                 <p><strong>Telegram:</strong> <a href="tg://resolve?domain=wowyoushinelashes">@wowyoushinelashes</a></p>
+                <p><strong>WhatsApp:</strong> <a href="wa.me" target="_blank">+7 (912) 345-67-89</a></p>
                 <p><strong>Телефон:</strong> <a href="tel:+79036641573">+7 (495) 123-45-67</a></p>
                 <p><strong>Время работы:</strong> Ежедневно с 10:00 до 20:00</p>
-                <!-- Используем кнопку с JS обработчиком -->
-                <button class="btn" onclick="sendTelegramMessage()">Написать в Telegram</button>
+                <div class="button-group">
+                    <button class="btn" onclick="sendTelegramMessage()">Написать в Telegram</button>
+                    <button class="btn whatsapp" onclick="sendWhatsAppMessage()">Написать в WhatsApp</button>
+                </div>
             </div>
         </section>
     </main>
@@ -165,19 +181,22 @@
         </div>
     </footer>
    
-    <!-- СКРИПТ ДЛЯ ОТКРЫТИЯ ССЫЛКИ -->
+    <!-- СКРИПТЫ ДЛЯ ОТКРЫТИЯ ССЫЛОК -->
     <script>
         function sendTelegramMessage() {
-            const username = 'wowyoushinelashes'; // Имя пользователя Telegram, которому будет отправлено сообщение
+            const username = 'wowyoushinelashes';
             const message = 'Здравствуйте, я хотел(а) бы записаться на услугу. Пожалуйста, подскажите свободное время.';
-            
-            // Кодируем текст для корректной передачи в URL
             const encodedText = encodeURIComponent(message);
-            
-            // Формируем URL с протоколом tg://
             const url = `tg://resolve?domain=${username}&text=${encodedText}`;
-            
-            // Открываем URL в новой вкладке, что инициирует открытие приложения Telegram
+            window.open(url, '_blank');
+        }
+
+        function sendWhatsAppMessage() {
+            // Важно: введите номер телефона в международном формате, без плюса, пробелов и скобок
+            const phoneNumber = '79036641573'; 
+            const message = 'Здравствуйте, я хотел(а) бы записаться на услугу. Пожалуйста, подскажите свободное время.';
+            const encodedText = encodeURIComponent(message);
+            const url = `wa.me{phoneNumber}?text=${encodedText}`;
             window.open(url, '_blank');
         }
     </script>
