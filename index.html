@@ -2,28 +2,182 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Отправка сообщения в Telegram</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wow You Shine | Салон Красоты</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfdfd;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #ff69b4; /* Ярко-розовый цвет для акцента */
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            cursor: pointer; /* Делаем курсор как у ссылки */
+            border: none; /* Убираем стандартную границу кнопки */
+            font-size: 1em; /* Делаем шрифт как у обычного текста */
+        }
+        .btn:hover {
+            background-color: #ff4d94;
+        }
+
+        /* Стили шапки и SVG */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            text-align: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            font-weight: bold;
+            color: #ff69b4;
+        }
+        .logo svg {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        /* Стили секций */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        #hero {
+            background-color: #fce4ec; /* Светло-розовый фон */
+        }
+        #services h2, #contact h2 {
+            margin-bottom: 20px;
+        }
+        .service-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .service-item {
+            background: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            width: 30%;
+            min-width: 200px;
+        }
+
+        /* Стили подвала */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Отправка сообщения в Telegram</h1>
-    <p>Нажмите на кнопку, чтобы написать сообщение пользователю "Kshik".</p>
+    <!-- Шапка и Логотип с SVG -->
+    <header>
+        <div class="container logo">
+            <!-- Встроенный SVG: иконка бриллианта -->
+            <svg xmlns="www.w3.org" viewBox="0 0 24 24">
+                <path fill="#ff69b4" d="M12 1L8 5l4 4 4-4-4-4zm0 2.24l2 2-2 2-2-2 2-2zm-6 4.76L2 11l10 12 10-12-4-4h-4zm0 2h4l2 2 2-2h4l-8 9-8-9z"/>
+            </svg>
+            Wow You Shine
+        </div>
+    </header>
 
-    <!-- Кнопка, при нажатии на которую будет вызвана функция JavaScript -->
-    <button onclick="sendTelegramMessage()">Написать в Telegram</button>
+    <main>
+        <!-- Секция приветствия (Hero) -->
+        <section id="hero" class="section">
+            <div class="container">
+                <h1>Добро пожаловать в Wow You Shine!</h1>
+                <p>Мы предлагаем лучшие услуги по уходу за собой. Почувствуйте себя звездой!</p>
+                <!-- Используем кнопку с JS обработчиком -->
+                <button class="btn" onclick="sendTelegramMessage()">Записаться в Telegram</button>
+            </div>
+        </section>
 
+        <!-- Секция Услуг и Цен -->
+        <section id="services" class="section">
+            <div class="container">
+                <h2>Наши услуги и цены</h2>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h3>Стрижки</h3>
+                        <p>Модные стрижки от профессионалов. От 1500 ₽.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Окрашивание</h3>
+                        <p>Все виды окрашивания, мелирование. От 3000 ₽.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Маникюр</h3>
+                        <p>Классический, гель-лак, дизайн. От 1200 ₽.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция Контактов и Записи -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Контакты и запись</h2>
+                <p><strong>Адрес:</strong> г. Москва, ул. Примерная, 10</p>
+                <!-- Обновил контактную информацию для Telegram -->
+                <p><strong>Telegram:</strong> <a href="tg://resolve?domain=Kshik">@wowyoushine</a></p>
+                <p><strong>Телефон:</strong> <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                <p><strong>Время работы:</strong> Ежедневно с 10:00 до 20:00</p>
+                <!-- Используем кнопку с JS обработчиком -->
+                <button class="btn" onclick="sendTelegramMessage()">Написать в Telegram</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Wow You Shine. Все права защищены.</p>
+        </div>
+    </footer>
+   
+    <!-- СКРИПТ ДЛЯ ОТКРЫТИЯ ССЫЛКИ -->
     <script>
         function sendTelegramMessage() {
-            const username = 'dclxviclangames'; 
-            const message = 'Привет, это сообщение с веб-сайта.';
+            const username = 'Kshik'; // Имя пользователя Telegram, которому будет отправлено сообщение
+            const message = 'Здравствуйте, я хотел(а) бы записаться на услугу. Пожалуйста, подскажите свободное время.';
             
-            // Кодируем текст, чтобы он корректно отображался в URL
+            // Кодируем текст для корректной передачи в URL
             const encodedText = encodeURIComponent(message);
             
-            // Формируем URL
+            // Формируем URL с протоколом tg://
             const url = `tg://resolve?domain=${username}&text=${encodedText}`;
             
-            // Открываем URL
+            // Открываем URL в новой вкладке, что инициирует открытие приложения Telegram
             window.open(url, '_blank');
         }
     </script>
